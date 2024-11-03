@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.UUID;
 
 @RequestMapping("/client")
 @RestController
@@ -37,7 +36,7 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientResponseDTO> findById(@PathVariable UUID id) {
+    public ResponseEntity<ClientResponseDTO> findById(@PathVariable Long id) {
         ClientResponseDTO responseDTO = clientService.findById(id);
         return ResponseEntity.ok(responseDTO);
     }
@@ -49,7 +48,7 @@ public class ClientController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ClientResponseDTO> updateClient(@PathVariable UUID id, @RequestBody ClientUpdateRequestDTO data) {
+    public ResponseEntity<ClientResponseDTO> updateClient(@PathVariable Long id, @RequestBody ClientUpdateRequestDTO data) {
         ClientResponseDTO responseDTO = clientService.update(id, data);
         return ResponseEntity.ok(responseDTO);
     }

@@ -37,7 +37,7 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
-    public ClientResponseDTO findById(UUID id) {
+    public ClientResponseDTO findById(Long id) {
         Client client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Client not found"));
         return new ClientResponseDTO(client);
     }
@@ -46,7 +46,7 @@ public class ClientService {
         return clientRepository.findAll(pageable).map(ClientResponseDTO::new);
     }
 
-    public ClientResponseDTO update(UUID id, ClientUpdateRequestDTO data) {
+    public ClientResponseDTO update(Long id, ClientUpdateRequestDTO data) {
         Client client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Client not found"));
         updateData(client, data);
         clientRepository.save(client);
