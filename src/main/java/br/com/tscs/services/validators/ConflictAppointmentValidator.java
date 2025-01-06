@@ -37,8 +37,6 @@ public class ConflictAppointmentValidator implements AppointmentValidator{
 
         List<Appointment> appointments = appointmentRepository.findAppointmentsByBookingTime(
                 appointment.bookingTime(), requestedEndTime);
-        System.out.println(appointment.bookingTime() + "   " + requestedEndTime);
-        System.out.println(appointments);
 
         if (!appointments.isEmpty()) {
             throw new ValidationException("Unavailable time, there is already an appointment scheduled for this time");

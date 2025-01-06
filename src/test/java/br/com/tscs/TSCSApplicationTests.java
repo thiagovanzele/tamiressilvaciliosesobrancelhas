@@ -1,4 +1,4 @@
-package br.com.tscs.tscs;
+package br.com.tscs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
